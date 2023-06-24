@@ -1,0 +1,38 @@
+[
+    {
+        "_id": {
+            "$oid": "642811d4620b57c3720070ee"
+        },
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "ano": 1899,
+        "preco": 20.59
+    },
+    {
+        "_id": {
+            "$oid": "642811d4620b57c3720070ef"
+        },
+        "titulo": "Angustia",
+        "autor": "Graciliano Ramos",
+        "ano": 1936,
+        "preco": 24.99
+    },
+    {
+        "_id": {
+            "$oid": "642811d4620b57c3720070f0"
+        },
+        "titulo": "Quincas Borba",
+        "autor": "Machado de Assis",
+        "ano": 1888,
+        "preco": 45.99
+    },
+    {
+        "_id": {
+            "$oid": "642811d4620b57c3720070f1"
+        },
+        "titulo": "Casa Grande e Senzala",
+        "autor": "Gilberto Freyre",
+        "ano": 1933,
+        "preco": 49.99
+    }
+]

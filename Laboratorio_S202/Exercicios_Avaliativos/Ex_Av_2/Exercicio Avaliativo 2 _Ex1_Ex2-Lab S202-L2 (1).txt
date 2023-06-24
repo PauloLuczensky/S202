@@ -1,0 +1,41 @@
+Exercicio Avaliativo 2 -Lab S202-L2
+
+Exercício 01: Buscas e Operações Básicas
+
+- Quem é amigo de Bob?
+
+MATCH (b:Usuario{nome:'Bob'})-[r:AMIGO]->(c:Usuario{nome:'Charlie'}) RETURN c;
+MATCH (a:Usuario{nome:'Alice'})-[r:AMIGO]->(b:Usuario{nome:'Bob'}) RETURN a;
+
+Os amigos do Bob são Alice e Charlie.
+
+- Quem postou a 'Postagem 2'?
+MATCH (p2:Postagem{titulo:'Memórias da Tarde'})<-[r:POSTOU]-(u:Usuario) RETURN u;
+
+O Bob realizou a postagem 2.
+
+- Quem tem mais de 35 anos e fez uma postagem?
+MATCH(u:Usuario)-[:POSTOU]->(:Postagem) WHERE u.idade > 35 RETURN u;
+
+Ninguém com mais de 35 anos postou uma postagem.
+
+------------------------------------------------
+Exercício 02: Funções Neo4j
+
+- Encontre o usuário mais velho.
+MATCH(u:Usuario) RETURN u.nome ORDER BY u.idade DESC LIMIT 1;
+
+O usuário mais velho é a Eve.
+
+- Quantos usuários têm mais de 30 anos?
+MATCH(u:Usuario) WHERE u.idade > 30 RETURN COUNT(u);
+
+3 usuários tem mais de 30 anos
+
+- Qual é a média de idade dos usuários?
+MATCH(u:Usuario) RETURN AVG(u.idade);
+
+A média de idade dos usuários é de 35 anos.
+
+
+

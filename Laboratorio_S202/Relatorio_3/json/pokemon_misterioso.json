@@ -1,0 +1,25 @@
+[
+    {
+        "_id": {
+            "$oid": "6404a88dd239492644e449b7"
+        },
+        "id": 579,
+        "name": {
+            "english": "Reuniclus",
+            "japanese": "\u30e9\u30f3\u30af\u30eb\u30b9",
+            "chinese": "\u4eba\u9020\u7ec6\u80de\u5375",
+            "french": "Symbios"
+        },
+        "type": [
+            "Psychic"
+        ],
+        "base": {
+            "HP": 110,
+            "Attack": 65,
+            "Defense": 75,
+            "Sp. Attack": 125,
+            "Sp. Defense": 85,
+            "Speed": 30
+        }
+    }
+]

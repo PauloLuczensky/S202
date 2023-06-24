@@ -1,0 +1,63 @@
+CREATE(:Pessoa:Dona_de_Casa{nome:"Zelia",sexo:"feminino", idade:70,hobby:"tricot"});
+CREATE(:Pessoa:Fazendeiro{nome:"Benedito",sexo:"masculino", idade:75,hobby:"construtor"});
+CREATE(:Pessoa:Medico{nome:"Roberto",sexo:"masculino", idade:43,hobby:"assistir futebol"});
+CREATE(:Pessoa:Professora{nome:"Ligia",sexo:"feminino", idade:39,hobby:"assistir filmes", status:"solteira"});
+
+CREATE(:Pessoa:Dona_de_Casa{nome:"Maria",sexo:"feminino", idade:77,hobby:"assistir novelas"});
+CREATE(:Pessoa:Policial{nome:"Antonio",sexo:"masculino", idade:80,hobby:"palavras cruzadas"});
+CREATE(:Pessoa:Secretaria{nome:"Helena",sexo:"feminino", idade:37,hobby:"ler livros"});
+CREATE(:Pessoa:Empresario{nome:"Daniel",sexo:"masculino", idade:33,hobby:"surfar", status:"separado"});
+
+CREATE(:Pessoa:Estudante{nome:"Ben",sexo:"masculino", idade:10,hobby:"brincar de super heroi"});
+
+CREATE(:Pessoa:Universitaria{nome:"Gwen",sexo:"feminino", idade:19,hobby:"artes marciais", curso: "Medicina"});
+
+CREATE(:Pessoa:Mecanico{nome:"Kevin",sexo:"masculino", idade:20,hobby:"turbinar carros"});
+
+CREATE(:Pessoa:Estudante{nome:"Gilbert",sexo:"masculino", idade:11,hobby:"jogar basquete"});
+
+CREATE(:Cahorro:Pet{nome:"Scooby",sexo:"masculino", idade:4,comida_favorita:"biscoitos Scooby"});
+
+MATCH(p1:Pessoa{nome:"Zelia"}),(p2:Pessoa{nome:"Benedito"}) CREATE (p1)-[:CASADA_COM{data_casamento:"11/11/1951", lua_de_mel:"Aguas de Lindoia"}]->(p2);
+
+MATCH(p2:Pessoa{nome:"Maria"}),(p3:Pessoa{nome:"Antonio"}) CREATE (p2)-[:CASADA_COM{data_casamento:"09/04/1940", lua_de_mel:"Serra Negra"}]->(p3);
+
+MATCH(p4:Pessoa{nome:"Helena"}),(p5:Pessoa{nome:"Roberto"}) CREATE (p4)-[:CASADA_COM{data_casamento:"04/02/1989", lua_de_mel:"Fortaleza"}]->(p5);
+
+MATCH(p1:Pessoa{nome:"Zelia"}),(p2:Pessoa{nome:"Roberto"}) CREATE (p1)-[:MAE_DE{zelosa:true, protetora:true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Maria"}),(p2:Pessoa{nome:"Helena"}) CREATE (p1)-[:MAE_DE{zelosa:true, protetora:false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Benedito"}),(p2:Pessoa{nome:"Roberto"}) CREATE (p1)-[:PAI_DE{amaroso:true, ausente:false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Antonio"}),(p2:Pessoa{nome:"Helena"}) CREATE (p1)-[:PAI_DE{amoroso:true, ausente:false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Ben"}),(p2:Pessoa{nome:"Roberto"}) CREATE (p1)-[:FILHO_DE{brincam_juntos: true, carinhoso:true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Ben"}),(p2:Pessoa{nome:"Helena"}) CREATE (p1)-[:FILHO_DE{brincam_juntos: true, carinhoso:true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Gilbert"}),(p2:Pessoa{nome:"Daniel"}) CREATE (p1)-[:FILHO_DE{brincam_juntos: true, carinhoso:true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Daniel"}),(p2:Pessoa{nome:"Maria"}) CREATE (p1)-[:FILHO_DE{mora_com: true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Daniel"}),(p2:Pessoa{nome:"Antonio"}) CREATE (p1)-[:FILHO_DE{mora_com: true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Gwen"}),(p2:Pessoa{nome:"Roberto"}) CREATE (p1)-[:FILHA_DE{relacionamento_pai_filha:"saudavel", sempre_juntos: true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Gwen"}),(p2:Pessoa{nome:"Helena"}) CREATE (p1)-[:FILHA_DE{relacionamento_mae_filha: "saudavel", sempre_juntos: true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Ligia"}),(p2:Pessoa{nome:"Zelia"}) CREATE (p1)-[:FILHA_DE{mora_com: false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Ligia"}),(p2:Pessoa{nome:"Benedito"}) CREATE (p1)-[:FILHA_DE{mora_com: false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Roberto"}),(p2:Pessoa{nome:"Ligia"}) CREATE (p1)-[:IRMAO_DE{irmaos_unidos:true, brigam: false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Helena"}),(p2:Pessoa{nome:"Daniel"}) CREATE (p1)-[:IRMA_DE{irmaos_unidos:true, brigam: true}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Gwen"}),(p2:Pessoa{nome:"Ben"}) CREATE (p1)-[:IRMA_DE{irmaos_unidos:true, brincam_juntos: false}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Gwen"}),(p2:Pessoa{nome:"Kevin"}) CREATE (p1)-[:NAMORA_COM{anos_juntos:3}]->(p2);
+
+MATCH(p1:Pessoa{nome:"Ben"}),(p2:Pet{nome:"Scooby"}) CREATE (p2)-[:CACHORRO_DO{melhores_amigos: true}]->(p1);
+
+MATCH(p1:Pessoa{nome:"Gilbert"}),(p2:Pessoa{nome:"Ben"}) CREATE (p2)-[:PRIMO_DO{melhores_amigos: true}]->(p1);

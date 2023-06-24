@@ -1,0 +1,86 @@
+Relatorio 7
+Functions - Neo4j
+
+Crie em um arquivo .txt 5 query’s para cada tipo: Agregações, 
+Funções matemáticas e Funções de String.  Utilize o dataset  
+abaixo do Neo4J Sandbox para criar as query’s.  
+
+1º) Agregação
+
+1.1)Retornando a média dos valores referentes ao balance
+dos nós que possuem a label BankAccount
+
+MATCH(n:BankAccount) RETURN AVG(n.balance);
+
+1.2)Retornando o maior valor do balance dos nós
+que possuem a label BankCard
+
+MATCH(n:BankCard) RETURN MAX(n.balance);
+
+1.3)Retornando os nomes das cidades dos nós que
+possuem a label DeliveryAddress
+
+MATCH(n:DeliveryAddress) RETURN COLLECT(n.city);
+
+1.4)Retornando o menor valor da propriedade limit
+pertencente ao nó de label CreditCard
+
+MATCH(n:CreditCard) RETURN MIN(n.limit);
+
+1.5)Retornando o total de número de celulares do nó
+com label PhoneNumber
+
+MATCH(n:PhoneNumber) RETURN COUNT(n.phone);
+
+2º) Funções Matemáticas
+
+2.1)Retornando para cima os valores da propriedade balance 
+do nó BankAccount
+
+MATCH(n:BankAccount) RETURN CEIL(n.balance);
+
+2.2)Retornando para baixo os valores da propriedade balance 
+do nó BankAccount
+
+MATCH(n:BankAccount) RETURN FLOOR(n.balance);
+
+2.3)Verificando o sinal dos valores da propriedade balance 
+do nó BankAccount
+
+MATCH(n:BankAccount) RETURN SIGN(n.balance);
+
+2.4)Retornando o valor absoluto da propriedade balance 
+do nó BankAccount
+
+MATCH(n:BankAccount) RETURN ABS(n.balance);
+
+2.5)Retornando o balance arredondado para cima em uma 
+casa decimal do nó BankAccount
+
+MATCH(n:BankAccount) RETURN ROUND(n.balance, 1, 'CEILING');
+
+3º) Funções de Strings
+
+3.1)Retornando o nome dos estados com todos em
+letra maiúscula
+
+MATCH(n:State) RETURN TOUPPER(n.name);
+
+3.2)Retornando o nome dos estados com todos em
+letra minúscula
+
+MATCH(n:State) RETURN TOLOWER(n.name);
+
+3.3)Retornando o nome dos estados de trás para frente
+
+MATCH(n:State) RETURN REVERSE(n.name);
+
+3.4)Verificando se é ou não uma String, usando a propriedade
+balance do nó BankCard
+
+MATCH(n:BankCard) RETURN TOSTRING(n.balance);
+
+3.5)Retornando uma substring, no caso retornando o last name
+do nó AccountHolder
+
+MATCH(n:AccountHolder) RETURN SUBSTRING(n.lastName,0,4);

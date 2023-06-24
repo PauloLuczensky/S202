@@ -1,0 +1,10 @@
+[
+    {
+        "_id": null,
+        "id": {
+            "cliente": 1,
+            "letra_cliente": "A"
+        },
+        "total": 40
+    }
+]
